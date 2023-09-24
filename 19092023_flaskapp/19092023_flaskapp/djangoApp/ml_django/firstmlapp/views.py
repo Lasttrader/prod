@@ -11,5 +11,4 @@ def index(request):
     #если сообщение успешно оставлено, выводим его json
     if message.ok:
         print(message.json())
-    
     return HttpResponse(str(message.json()))

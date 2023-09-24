@@ -93,12 +93,13 @@ def main():
         print(predicted_age)
         return render_template('main.html', result = predicted_age)
 
-@app.route('/api/api_message/',  methods = ['POST', 'GET'])
+@app.route('/api/api_message/v1/',  methods = ['POST', 'GET'])
 def api_message():
     message = request.json
     X = message['X']
     predict = kNNR.predict(X)
     return jsonify({'age_predicted' : str(predict)})
+
 
 if __name__ == '__main__':
     app.run()
