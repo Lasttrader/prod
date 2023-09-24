@@ -1,0 +1,96 @@
+<!doctype html>
+<style>
+    form {
+        margin: auto;
+        width: 35%;
+    }
+
+    .result {
+        margin: auto;
+        width: 35%;
+        border: 1px solid #ccc;
+    }
+</style>
+
+<head>
+    <title>Прогнозирование стоимости страховки</title>
+</head>
+
+<form action="{{url_for('main')}}" method="POST">
+    <fieldset>
+        <small>job</small>
+        <input type="text" class="form-control" name="job" placeholder="работа" required="required" />
+        <br>
+        <br>
+        <small>marital</small>
+        <input type="text" name="marital" required="required" />
+        <br>
+        <br>
+        <small>education</small>
+        <input type="text" name="education" required="required" />
+        <br>
+        <br>
+        <small>default</small>
+        <input type="text" name="default" required="required" />
+        <br>
+        <br>
+        <small>balance</small>
+        <input type="text" name="balance" required="required" />
+        <br>
+        <br>
+        <small>housing</small>
+        <input type="text" name="housing" required="required" />
+        <br>
+        <br>
+        <small>loan</small>
+        <input type="text" name="loan" required="required" />
+        <br>
+        <br>
+        <small>contact</small>
+        <input type="text" name="contact" required="required" />
+        <br>
+        <br>
+        <small>day</small>
+        <input type="text" name="day" required="required" />
+        <br>
+        <br>
+        <small>month</small>
+        <input type="text" name="month" required="required" />
+        <br>
+        <br>
+        <small>duration</small>
+        <input type="text" name="duration" required="required" />
+        <br>
+        <br>
+        <small>campaign</small>
+        <input type="text" name="campaign" required="required" />
+        <br>
+        <br>
+        <small>pdays</small>
+        <input type="text" name="pdays" required="required" />
+        <br>
+        <br>
+        <small>previous</small>
+        <input type="text" name="previous" required="required" />
+        <br>
+        <br>
+        <small>poutcome</small>
+        <input type="text" name="poutcome" required="required" />
+        <br>
+        <br>
+        <small>y</small>
+        <input type="text" name="y" required="required" />
+
+        <button type='submit'>Predict</button>
+    </fieldset>
+</form>
+
+<div class="result" align="center">
+    {% if result %}
+    <br>
+    <p style="font-size:50px">
+        Ваша прогнозный возраст
+    </p>
+    <p style="font-size:50px"> {{result}}</p>
+    {% endif %}
+</div>
