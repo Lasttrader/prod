@@ -89,12 +89,16 @@ def main():
         X.extend(cat_X)
         X.extend(num_X[0])
         print('X', X)
-
         predicted_age = kNNR.predict([X])
         print(predicted_age)
-
         return render_template('main.html', result = predicted_age)
 
+@app.route('/api/api_message/',  methods = ['POST', 'GET'])
+def api_message():
+    message = request.json
+    X = message['X']
+    predict = kNNR.predict(X)
+    return jsonify({'age_predicted' : str(predict)})
 
 if __name__ == '__main__':
     app.run()
